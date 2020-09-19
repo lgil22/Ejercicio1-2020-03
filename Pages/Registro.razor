@@ -1,5 +1,7 @@
-@page "/Estudiantes"
+﻿@page "/Estudiantes"
 @page "/Estudiantes/{EstudianteId:int}"
+@using Ejercicio1_2020_03.Models
+@using Ejercicio1_2020_03.BLL
 
 
 <EditForm Model="Estudiante" OnValidSubmit="Guardar">
@@ -38,8 +40,8 @@
                     <InputNumber @bind-Value="Estudiante.Semestre"
                                  class="form-control" />
                     <ValidationMessage For="@(() => Estudiante.Semestre)" />
-                </div>               
-       
+                </div>
+
             </form>
         </div>
         <div class="card-footer">
@@ -52,7 +54,7 @@
     </div>
 </EditForm>
 
-@code {
+@code  {
     [Parameter]
     public int EstudianteId { get; set; }
 
@@ -72,7 +74,7 @@
         Estudiante = new Estudiantes();
     }
 
-   
+
 
     private void Buscar()
     {
@@ -83,14 +85,14 @@
             if (encontrado != null)
                 this.Estudiante = encontrado;
             //else
-                //toast.ShowWarning("No encontrado");
+            //toast.ShowWarning("No encontrado");
         }
     }
 
     public void Guardar()
     {
         bool guardo;
-       
+
         guardo = EstudiantesBLL.Guardar(Estudiante);
 
         if (guardo)
@@ -99,20 +101,20 @@
             //toast.ShowSuccess("Guardado correctamente");
         }
         //else
-            //toast.ShowError("No fue posible guardar");
+        //toast.ShowError("No fue posible guardar");
     }
 
     public void Eliminar()
     {
-       /* bool elimino;
-        elimino = EstudiantesBLL.Eliminar(Estudiante.EstudianteId);
-        if (elimino)
-        {
-            Nuevo();
-            //toast.ShowSuccess("Eliminado correctamente");
-        }
-        else
-            //toast.ShowError("No fue posible eliminar");*/
+        /* bool elimino;
+         elimino = EstudiantesBLL.Eliminar(Estudiante.EstudianteId);
+         if (elimino)
+         {
+             Nuevo();
+             //toast.ShowSuccess("Eliminado correctamente");
+         }
+         else
+             //toast.ShowError("No fue posible eliminar");*/
     }
 
 

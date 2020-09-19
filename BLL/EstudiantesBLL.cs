@@ -1,8 +1,11 @@
+﻿using Ejercicio1_2020_03.DAL;
 using Ejercicio1_2020_03.Models;
-using Ejercicio1_2020_03.DAL;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace Ejercicio1_2020_03.BLL
 {
@@ -73,8 +76,8 @@ namespace Ejercicio1_2020_03.BLL
             return paso;
         }
 
-           public static bool Existe(int id)
-            {
+        public static bool Existe(int id)
+        {
             Contexto contexto = new Contexto();
             bool encontrado = false;
 
@@ -92,26 +95,26 @@ namespace Ejercicio1_2020_03.BLL
             }
 
             return encontrado;
-            }
+        }
 
-            public static Estudiantes Buscar(int id)
+        public static Estudiantes Buscar(int id)
+        {
+            Contexto contexto = new Contexto();
+            Estudiantes estudiante = new Estudiantes();
+
+            try
             {
-                Contexto contexto = new Contexto();
-                Estudiantes estudiante = new Estudiantes();
-
-                try
-                {
-                    estudiante = contexto.Estudiantes.Find(id);
-                }
-                catch
-                {
-                    throw;
-                }   
-                finally
-                {
-                    contexto.Dispose();
-                }
-                return estudiante; 
+                estudiante = contexto.Estudiantes.Find(id);
             }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return estudiante;
+        }
     }
 }

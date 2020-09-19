@@ -72,6 +72,20 @@ using Ejercicio1_2020_03.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Aplicada2\Ejercicio1-2020-03\_Imports.razor"
+using Ejercicio1_2020_03.BLL;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Aplicada2\Ejercicio1-2020-03\_Imports.razor"
+using Ejercicio1_2020_03.Pages;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {
